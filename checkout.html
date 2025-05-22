@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SC Mavro Club</title>
+    <link rel="icon" href="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="checkout.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" alt="Logo">
+            <h2>SC Mavro Club</h2>
+        </div>
+        <h1>Checkout</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <section class="checkout-section">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="total-price">0.00</span></p>
+
+            <h2>Delivery Details</h2>
+            <form id="checkout-form">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="tel" id="phone-number" placeholder="Phone Number" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="address" placeholder="Enter your delivery address in Aswan" required>
+                <div id="map" style="height: 400px; width: 100%; margin: 15px 0;"></div>
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+                <button type="button" id="confirm-location">Confirm Location</button>
+                <button type="submit">Place Order</button>
+            </form>
+            <p id="location-warning" style="color: red; display: none;">Please confirm your delivery location before placing the order.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 SC Mavro Club Management. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61571309936419&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/@Mavro_SC" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/mavro_sc/profilecard/?igsh=Zjg5c2drem9qMDNr" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/MAVRO_SC?t=XrOmddCRq6fqouYTIDoybA&s=08" target="_blank" aria-label="X">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://open.spotify.com/user/31fig4fkqwsxndrex7m56u7sw4ue?si=9-glNMBjQ5iPzpRRqUYX_Q" target="_blank" aria-label="Spotify">
+                <i class="fab fa-spotify"></i>
+            </a>
+            <a href="https://www.tiktok.com/@mavro_sc?_t=ZS-8sZAHXjtuCG&_r=1" target="_blank" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://discord.gg/Sn7EQeE3" target="_blank" aria-label="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Google Maps API with your key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-ZkoUqmoOZBlazHVNusACQVi7jzhMthU&libraries=places&callback=initMap" async defer></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="events.css">
+    <link rel="icon" href="B:\DATABASE\3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" type="image/png">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Mavro_SC - Events</title>
+</head>
+<body>
+    <header>
+        <nav class="main-navbar">
+           <div class="logo">
+            <img src="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" alt="Logo"> <!-- Placeholder for logo -->
+            <h2> SC Mavro Club </h2>
+            </div>
+            <div class="navbar-center">
+                <input type="text" class="search-bar" placeholder="search event & more...">
+            </div>
+            <div class="navbar-right">
+                <a href="index.html"><span class="nav-icon">🏠</span> Home</a>
+                
+            </div>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+    <main>
+        <div class="side-bar left"></div>
+        <div class="side-bar left2"></div>
+        <div class="side-bar left3"></div>
+        <div class="side-bar left4"></div>
+        <div class="side-bar left5"></div>
+        <div class="side-bar left6"></div>
+        <div class="side-bar right"></div>
+        <div class="side-bar right2"></div>
+        <div class="side-bar right3"></div>
+        <div class="side-bar right4"></div>
+        <div class="side-bar right5"></div>
+        <div class="side-bar right6"></div>
+        <section class="banner">
+            <img src="WhatsApp Image 2025-05-18 at 07.24.18_6dab85f3.jpg" alt="Pyramids Sound & Light Show">
+            <div class="banner-text">
+                <h2>Pyramids Sound & Light Show</h2>
+                <button onclick="showEventDetails(0)">View Details</button>
+            </div>
+        </section>
+        <section class="events events-horizontal">
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="1">
+                    <img src="WhatsApp Image 2025-05-18 at 07.24.18_640aeaf6.jpg" alt="Project Meem">
+                    <div class="event-info">
+                        <h3>Project Meem: Marwan Pablo & Marwan Moussa</h3>
+                        <p class="event-desc">A historic night! Two rap legends, one explosive stage. Don't miss the energy of Pablo and Moussa together in an unforgettable show.</p>
+                        <button class="view-details" onclick="showEventDetails(1)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(1)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="2">
+                    <img src="WhatsApp Image 2025-05-18 at 07.24.18_387ea5b6.jpg" alt="Disney On Ice">
+                    <div class="event-info">
+                        <h3>Disney On Ice (Let's Celebrate)</h3>
+                        <p class="event-desc">Step into a magical world of Disney! Spectacular ice skating, dazzling lights, and your favorite characters await you.</p>
+                        <button class="view-details" onclick="showEventDetails(2)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(2)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="3">
+                    <img src="c8aef1ee1deb0403f30b32873428117f.jpg" alt="Travis Scott">
+                    <div class="event-info">
+                        <h3>Travis Scott</h3>
+                        <p class="event-desc">Experience the wildest night in Cairo! Travis Scott brings his UTOPIA tour with insane visuals and non-stop hype.</p>
+                        <button class="view-details" onclick="showEventDetails(3)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(3)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="4">
+                    <img src="190a60d1175a621df4b5dab8d1870db3.jpg" alt="Justin Bieber">
+                    <div class="event-info">
+                        <h3>Justin Bieber</h3>
+                        <p class="event-desc">Pop sensation Justin Bieber live in Cairo! Sing along to global hits and enjoy a night of pure stardom.</p>
+                        <button class="view-details" onclick="showEventDetails(4)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(4)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="5">
+                    <img src="8aece73ebb3351635f4b57d55ba0c6d4.jpg" alt="Hamagy">
+                    <div class="event-info">
+                        <h3>Mohamed Hamaki</h3>
+                        <p class="event-desc">A night of romance and hits! Hamagy's voice and energy will make you dance and feel every beat.</p>
+                        <button class="view-details" onclick="showEventDetails(5)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(5)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="6">
+                    <img src="007f3ce5e34531ac1fe846a247945270.jpg" alt="Tamer Hosny">
+                    <div class="event-info">
+                        <h3>Tamer Hosny</h3>
+                        <p class="event-desc">Superstar Tamer Hosny live! Feel the passion, the music, and the unforgettable moments all in one concert.</p>
+                        <button class="view-details" onclick="showEventDetails(6)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(6)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="7">
+                    <img src="2ff00f7ee03740e5ee07a80380d6d7eb.jpg" alt="Amr Diab">
+                    <div class="event-info">
+                        <h3>Amr Diab</h3>
+                        <p class="event-desc">The legend returns! Amr Diab's summer concert is the hottest ticket in town. Dance to the biggest Arabic hits!</p>
+                        <button class="view-details" onclick="showEventDetails(7)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(7)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="8">
+                    <img src="2ed1205fce091c30b47bc46b8c6eaf62.jpg" alt="Tamer Ashour">
+                    <div class="event-info">
+                        <h3>Tamer Ashour</h3>
+                        <p class="event-desc">Let your heart melt with Tamer Ashour's emotional hits. A night of pure feeling and beautiful music awaits.</p>
+                        <button class="view-details" onclick="showEventDetails(8)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(8)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="9">
+                    <img src="15da3e386f272a3c6c0f84a0837ba857.jpg" alt="Wegz">
+                    <div class="event-info">
+                        <h3>Wegz</h3>
+                        <p class="event-desc">The trap king of Egypt, Wegz, is here to set the stage on fire! Get ready for an explosive night of beats and vibes.</p>
+                        <button class="view-details" onclick="showEventDetails(9)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(9)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="10">
+                    <img src="22dce9c30ca41e6832e69b1144f1c63f.jpg" alt="Sherine">
+                    <div class="event-info">
+                        <h3>Sherine</h3>
+                        <p class="event-desc">Feel the magic of Sherine's voice in a night full of emotions! Her timeless hits will touch your heart.</p>
+                        <button class="view-details" onclick="showEventDetails(10)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(10)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="11">
+                    <img src="288b8fed5aecd97ab62545d606ab7629.jpg" alt="Hussain Al Jassmi">
+                    <div class="event-info">
+                        <h3>Hussain Al Jassmi</h3>
+                        <p class="event-desc">Hussain Al Jassmi brings his soulful voice to Cairo! A night of love and celebration awaits you.</p>
+                        <button class="view-details" onclick="showEventDetails(11)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(11)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="12">
+                    <img src="42580e36c49b656bf02887e9ae904316.jpg" alt="Angham">
+                    <div class="event-info">
+                        <h3>Angham</h3>
+                        <p class="event-desc">Angham's enchanting voice will take you on an emotional journey! Don't miss this unforgettable concert.</p>
+                        <button class="view-details" onclick="showEventDetails(12)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(12)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="13">
+                    <img src="d151638c3ffe466365ee0defe9caf0b5.jpg" alt="Assala">
+                    <div class="event-info">
+                        <h3>Assala</h3>
+                        <p class="event-desc">Assala's powerful voice will leave you speechless! A night of passion and music you'll never forget.</p>
+                        <button class="view-details" onclick="showEventDetails(13)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(13)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="14">
+                    <img src="كل-ما-ترغب-في-معرفته-عن-روبي.jpg" alt="Ruby">
+                    <div class="event-info">
+                        <h3>Ruby</h3>
+                        <p class="event-desc">Ruby brings her vibrant energy to the stage! Dance the night away with her catchy hits.</p>
+                        <button class="view-details" onclick="showEventDetails(14)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(14)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-row">
+                <div class="event-card event-card-horizontal" data-event-id="15">
+                    <img src="866ee091b18e66708200b99588381874.jpg" alt="Ahmed Saad">
+                    <div class="event-info">
+                        <h3>Ahmed Saad</h3>
+                        <p class="event-desc">Ahmed Saad is here to light up Cairo with his electrifying energy! Known for his massive hits like 'El Youm El Helw Dah,' 'Wasa Wasa,' and 'Mabrouk Alina,' Ahmed Saad blends pop, shaabi, and oriental vibes in a way that gets everyone on their feet. His dynamic stage presence and heartfelt lyrics will make this a night of pure celebration. Get ready to dance, sing, and feel the joy of music with one of Egypt's most beloved stars!</p>
+                        <button class="view-details" onclick="showEventDetails(15)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(15)">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="event-card event-card-horizontal" data-event-id="16">
+                    <img src="a0e0e6d5d5e733fc94a395da1ddc59d0.jpg" alt="Kazem El Saher">
+                    <div class="event-info">
+                        <h3>Kazem El Saher</h3>
+                        <p class="event-desc">The Caesar of Arabic music, Kazem El Saher, returns to Cairo for a night of timeless romance! With a career spanning over three decades, Kazem has enchanted the world with classics like 'Ahebini,' 'Zidini Ishqan,' and 'Ana Wa Laila.' His poetic lyrics and soulful voice will transport you to a world of love and nostalgia. Join thousands of fans for an unforgettable evening of elegance, passion, and musical mastery under the stars!</p>
+                        <button class="view-details" onclick="showEventDetails(16)">View Details</button>
+                        <button class="buy-tickets" onclick="buyTickets(16)">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+      <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 SC Mavro Club Management. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61571309936419&mibextid=ZbWKwL" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/@Mavro_SC" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mavro_sc/profilecard/?igsh=Zjg5c2drem9qMDNr" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/MAVRO_SC?t=XrOmddCRq6fqouYTIDoybA&s=08" target="_blank" aria-label="X">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://open.spotify.com/user/31fig4fkqwsxndrex7m56u7sw4ue?si=9-glNMBjQ5iPzpRRqUYX_Q" target="_blank" aria-label="Spotify">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mavro_sc?_t=ZS-8sZAHXjtuCG&_r=1" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://discord.gg/Sn7EQeE3" target="_blank" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="events.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+/* CSS Variables for Theming */
+:root {
+  /* Light Mode Defaults (original colors) */
+  --background-color: linear-gradient(to bottom right, #003f6a, #218838); /* Body gradient */
+  --text-color: #ffffff; /* Body text */
+  --container-bg: rgba(255, 255, 255, 0.504); /* Login container */
+  --container-shadow: 0 10px 20px rgba(0, 0, 0, 0.417); /* Container shadow */
+  --header-color: #003f6a; /* Header h1 */
+  --input-border: #ccc; /* Input border */
+  --input-focus-border: #003f6a; /* Input focus border */
+  --input-focus-shadow: 0 0 5px rgba(0, 63, 106, 0.5); /* Input focus shadow */
+  --button-bg: #ff9d00; /* Form button */
+  --button-hover: #e68a00; /* Form button hover */
+  --divider-bg: #ccc; /* Divider line */
+  --divider-text: #888; /* Divider text */
+  --social-bg: #ffffff; /* Social buttons */
+  --social-text: #000000; /* Social button text */
+  --signup-text: #000000; /* Signup text */
+  --link-color: #ff9d00; /* Signup link */
+  --footer-text: #ffffff; /* Footer text */
+  --scrollbar-track: #f0f0f0; /* Scrollbar track */
+  --scrollbar-thumb: #006f69; /* Scrollbar thumb */
+  --scrollbar-thumb-hover: #004c49; /* Scrollbar thumb hover */
+}
+
+/* Dark Mode Variables (aligned with Store Mavro SC.html) */
+body.dark-mode {
+  --background-color: linear-gradient(to bottom right, #001833, #003f6a); /* Darker gradient */
+  --text-color: #ff9d00; /* Gold text */
+  --container-bg: rgba(10, 42, 77, 0.8); /* Dark navy container */
+  --container-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* White shadow */
+  --header-color: #ff9d00; /* Gold h1 */
+  --input-border: #555; /* Dark gray border */
+  --input-focus-border: #ff9d00; /* Gold focus border */
+  --input-focus-shadow: 0 0 5px rgba(255, 157, 0, 0.5); /* Gold focus shadow */
+  --button-bg: #ff9d00; /* Gold button */
+  --button-hover: #e68a00; /* Darker gold hover */
+  --divider-bg: #555; /* Dark gray divider */
+  --divider-text: #cccccc; /* Light gray divider text */
+  --social-bg: #0a2a4d; /* Lighter navy social buttons */
+  --social-text: #ffffff; /* White social text */
+  --signup-text: #ffffff; /* White signup text */
+  --link-color: #ff9d00; /* Gold link */
+  --footer-text: #ff9d00; /* Gold footer text */
+  --scrollbar-track: #0a2a4d; /* Dark navy track */
+  --scrollbar-thumb: #ff9d00; /* Gold thumb */
+  --scrollbar-thumb-hover: #e68a00; /* Darker gold thumb */
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 60px; /* Prevent footer overlap */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Paragraph */
+p {
+  text-align: center;
+  margin-top: 22px;
+  color: var(--text-color);
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+/* Login Container */
+.login-container {
+  background: var(--container-bg);
+  border-radius: 20px;
+  box-shadow: var(--container-shadow);
+  text-align: center;
+  padding: 30px 25px;
+  width: 350px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Header */
+.header img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  color: var(--header-color);
+  margin: 10px 0;
+  font-size: 35px;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.header p {
+  color: var(--text-color);
+  font-size: 30px;
+  font-style: italic;
+}
+
+/* Form Inputs */
+form input {
+  width: 90%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 3px solid var(--input-border);
+  border-radius: 13px;
+  font-size: 1em;
+  box-sizing: border-box;
+  background: var(--container-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
+}
+
+/* Form Button */
+form button {
+  width: 90%;
+  padding: 12px;
+  margin-top: 15px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 800;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Divider */
+.or-divider {
+  margin: 20px 0;
+  position: relative;
+  color: var(--divider-text);
+  transition: color 0.3s ease;
+}
+
+.or-divider span {
+  background: var(--container-bg);
+  padding: 0 10px;
+  font-size: 0.9em;
+}
+
+.or-divider:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--divider-bg);
+  z-index: -1;
+}
+
+/* Social Buttons */
+.social-buttons button {
+  width: 90%;
+  padding: 12px;
+  margin: 12px 19px;
+  border: none;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--social-bg);
+  color: var(--social-text);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.social-buttons button img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.social-buttons button:hover {
+  background: var(--social-bg);
+  transform: scale(1.05);
+}
+
+.social-buttons .facebook,
+.social-buttons .google,
+.social-buttons .apple,
+.social-buttons .instagram {
+  background: var(--social-bg);
+  color: var(--social-text);
+}
+
+/* Signup */
+.signup {
+  margin-top: 20px;
+  font-size: 18px;
+  color: var(--signup-text);
+  transition: color 0.3s ease;
+}
+
+.signup a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  color: var(--footer-text);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--button-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .theme-toggle i.fa-sun {
+  display: none;
+}
+
+body.dark-mode .theme-toggle i.fa-moon {
+  display: block;
+}
+
+.theme-toggle i.fa-moon {
+  display: none;
+}
+
+body.light-mode .theme-toggle i.fa-sun {
+  display: block;
+}
+
+body.light-mode .theme-toggle i.fa-moon {
+  display: none;
+}

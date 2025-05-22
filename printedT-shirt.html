@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAVRO SC Store - Customize Your T-Shirt</title>
+    <link rel="icon" href="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&family=Anton&family=Roboto&family=Arial&family=Courier+New&family=Georgia&family=Times+New+Roman&family=Verdana&family=Tahoma&family=Trebuchet+MS&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #218838;
+            --secondary-color: #ff9d00;
+            --accent-color: #003f6a;
+            --background-color: linear-gradient(to right, #006F6A, #4CAF50);
+            --text-color: #333;
+            --button-radius: 5px;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --jersey-preview-bg: rgba(255, 255, 255, 0.7);
+            --jersey-text: #000000;
+            --jersey-container-bg: linear-gradient(to right, #006F6A, #4CAF50);
+            --preview-details-bg: rgba(0, 0, 0, 0.5);
+            --preview-details-text: white;
+            --form-bg: #ffffff;
+            --form-text: #333;
+            --scrollbar-track: #f0f0f0;
+            --scrollbar-thumb: #006f69;
+            --scrollbar-thumb-hover: #004c49;
+        }
+
+        body.dark-mode {
+            --background-color: linear-gradient(to right, #001833, #003f6a); /* Navy gradient */
+            --text-color: #ffffff; /* Bright white for clarity */
+            --shadow-color: rgba(255, 255, 255, 0.1); /* Light shadow */
+            --jersey-preview-bg: rgba(255, 255, 255, 0.7); /* Lighter navy for visibility */
+            --jersey-text: #ffffff; /* Bright white */
+            --jersey-container-bg: linear-gradient(to right, #001833, #003f6a); /* Navy gradient */
+            --preview-details-bg: rgba(0, 0, 0, 0.7); /* Darker overlay */
+            --preview-details-text: #ff9d00; /* Gold */
+            --form-bg: #0a2a4d; /* Lighter navy for form boxes */
+            --form-text: #ffffff; /* Bright white */
+            --scrollbar-track: #001833; /* Darker navy */
+            --scrollbar-thumb: #ff9d00; /* Gold */
+            --scrollbar-thumb-hover: #e68a00; /* Darker gold */
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: white; /* Matches h1 color */
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            color: var(--secondary-color); /* Gold */
+        }
+
+        .theme-toggle-btn:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        /* Body */
+        body {
+            background: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Jersey Preview */
+        #jersey-preview {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-size: contain;
+            background-repeat: no-repeat;
+            color: var(--scrollbar-track);
+            background-position: center;
+            background-color: var(--jersey-preview-bg);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        #jersey-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px var(--shadow-color);
+        }
+
+        #jersey-text, #jersey-number, #jersey-brand {
+            position: absolute;
+            text-shadow: 3px 3px 5px rgba(33, 33, 33, 0.714);
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            color: var(--jersey-text);
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        #jersey-text {
+            top: 4%;
+            font-size: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #jersey-number {
+            top: 40%;
+            transform: translateY(-50%);
+            font-size: 60px;
+        }
+
+        #jersey-brand {
+            bottom: 5%;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Color Picker */
+        .color-picker-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        input[type="color"]:hover {
+            transform: scale(1.1);
+        }
+
+        /* Jersey Container */
+        .jersey-container {
+            background: var(--jersey-container-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px var(--shadow-color);
+        }
+
+        /* Form and Inputs */
+        .bg-white {
+            background-color: var(--form-bg);
+        }
+
+        .text-gray-700 {
+            color: var(--form-text);
+        }
+
+        body.dark-mode .text-gray-700 {
+            color: var(--accent-color); /* Navy blue for labels */
+        }
+
+        body.dark-mode .text-gray-600 {
+            color: var(--accent-color); /* Navy blue for color picker labels */
+        }
+
+        body.dark-mode .bg-white h2,
+        body.dark-mode .bg-white h3 {
+            color: var(--accent-color); /* Navy blue for headings */
+        }
+
+        body.dark-mode .border {
+            border-color: var(--secondary-color); /* Gold for borders */
+        }
+
+        body.dark-mode select,
+        body.dark-mode input {
+            background-color: #001833; /* Darker navy */
+            color: var(--form-text);
+            border-color: var(--secondary-color);
+        }
+
+        body.dark-mode .focus\:ring-blue-600:focus {
+            --tw-ring-color: var(--secondary-color); /* Gold ring */
+        }
+
+        /* Buttons */
+        button {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        body.dark-mode .bg-blue-600 {
+            background-color: var(--primary-color);
+        }
+
+        body.dark-mode .hover\:bg-blue-700:hover {
+            background-color: var(--accent-color);
+        }
+
+        body.dark-mode .bg-green-600 {
+            background-color: var(--primary-color);
+        }
+
+        body.dark-mode .hover\:bg-green-700:hover {
+            background-color: var(--accent-color);
+        }
+
+        body.dark-mode .bg-red-600 {
+            background-color: #b91c1c; /* Keep red for cancel */
+        }
+
+        body.dark-mode .hover\:bg-red-700:hover {
+            background-color: #991b1b;
+        }
+
+        /* Preview Details */
+        #preview-details {
+            color: var(--preview-details-text);
+            background: var(--preview-details-bg);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        /* Customize the scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 10px;
+            border: 2px solid var(--scrollbar-track);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--scrollbar-thumb-hover);
+        }
+
+        /* Optional: Hide scrollbar for specific elements */
+        .hidden-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .hidden-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-6 max-w-4xl">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-5xl font-bold text-center font-['Bebas_Neue']" style="color: white; letter-spacing: 3px;">MAVRO SC Store - Customize Your T-shirt</h1>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Customization Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-6 font-['Oswald']">Customize Your T-shirt</h2>
+                <form id="customize-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="material">Material</label>
+                        <select id="material" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="cotton">Cotton</option>
+                            <option value="polyester">Polyester</option>
+                            <option value="nylon">Nylon</option>
+                            <option value="spandex">Spandex</option>
+                            <option value="blend">Blend (Cotton/Polyester)</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="size">Size</label>
+                        <select id="size" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="S">Small (S) - 50-65 kg</option>
+                            <option value="M">Medium (M) - 65-80 kg</option>
+                            <option value="L">Large (L) - 80-95 kg</option>
+                            <option value="XL">Extra Large (XL) - 95-110 kg</option>
+                            <option value="XXL">Double Extra Large (XXL) - 110-125 kg</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="font">Text Font</label>
+                        <select id="font" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="Roboto">Roboto</option>
+                            <option value="Anton">Anton</option>
+                            <option value="Bebas Neue">Bebas Neue</option>
+                            <option value="Oswald">Oswald</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Trebuchet MS">Trebuchet MS</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="nameInput">Custom Text</label>
+                        <input type="text" id="nameInput" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter your name" maxlength="20">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="numberInput">T-shirt Number</label>
+                        <input type="number" id="numberInput" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter number (1-99)" min="1" max="99">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="jerseyColorPicker">T-shirt Color</label>
+                        <div class="color-picker-container">
+                            <input type="color" id="jerseyColorPicker" value="#ffffff">
+                            <span class="text-gray-600">Pick T-Shirt color</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2" for="textColorPicker">Text Color</label>
+                        <div class="color-picker-container">
+                            <input type="color" id="textColorPicker" value="#000000">
+                            <span class="text-gray-600">Pick text color</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="updatePreview()" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition font-['Oswald']">Update Preview</button>
+                </form>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center jersey-container">
+                <h2 class="text-2xl font-semibold mb-6 font-['Oswald']">T-shirt Preview</h2>
+                <div id="jersey-preview" style="background-image: url('https://ibb.co/VWRTZfJ4');">
+                    <div id="jersey-text" class="fade-in"></div>
+                    <div id="jersey-number" class="fade-in"></div>
+                    <div id="jersey-brand" class="fade-in">MAVRO SC</div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="text-lg font-medium mb-2 font-['Oswald']">Preview Details</h3>
+                    <p id="preview-details" class="text-white"></p>
+                    <div class="flex gap-4 mt-6">
+                        <button onclick="addToCart()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-['Oswald']">Add to Cart</button>
+                        <button onclick="resetForm()" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition font-['Oswald']">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updatePreview() {
+            const material = document.getElementById('material').value;
+            const size = document.getElementById('size').value;
+            const font = document.getElementById('font').value;
+            const customText = document.getElementById('nameInput').value || 'No Text';
+            const customNumber = document.getElementById('numberInput').value || 'No Number';
+            const jerseyColor = document.getElementById('jerseyColorPicker').value;
+            const textColor = document.getElementById('textColorPicker').value;
+
+            // Define prices based on material
+            const materialPrices = {
+                'cotton': 49.99,
+                'polyester': 39.99,
+                'nylon': 29.99,
+                'spandex': 19.99,
+                'blend': 34.99
+            };
+
+            // Update preview
+            const preview = document.getElementById('jersey-preview');
+            preview.style.backgroundColor = jerseyColor;
+            preview.style.backgroundImage = `url('https://ibb.co/VWRTZfJ4')`;
+
+            // Update text styles
+            const text = document.getElementById('jersey-text');
+            const number = document.getElementById('jersey-number');
+            const brand = document.getElementById('jersey-brand');
+            text.textContent = customText;
+            text.style.color = textColor;
+            text.style.fontFamily = `'${font}', sans-serif`;
+            number.textContent = customNumber;
+            number.style.color = textColor;
+            number.style.fontFamily = `'${font}', sans-serif`;
+            brand.textContent = 'MAVRO SC';
+            brand.style.color = textColor;
+            brand.style.fontFamily = `'${font}', sans-serif`;
+
+            // Add fade-in animation
+            [text, number, brand].forEach(el => {
+                el.classList.remove('fade-in');
+                void el.offsetWidth; // Trigger reflow
+                el.classList.add('fade-in');
+            });
+
+            // Adjust size based on selection
+            const sizeScales = {
+                'S': 0.6,
+                'M': 0.8,
+                'L': 0.9,
+                'XL': 1.0,
+                'XXL': 1.1
+            };
+            preview.style.transform = `scale(${sizeScales[size]})`;
+
+            // Update preview details
+            const weightRanges = {
+                'S': '50-65 kg',
+                'M': '65-80 kg',
+                'L': '80-95 kg',
+                'XL': '95-110 kg',
+                'XXL': '110-125 kg'
+            };
+            document.getElementById('preview-details').innerHTML = `
+                <strong>Material:</strong> ${material.charAt(0).toUpperCase() + material.slice(1)}<br>
+                <strong>Price:</strong> $${materialPrices[material]}<br>
+                <strong>Size:</strong> ${size} (${weightRanges[size]})<br>
+                <strong>Font:</strong> ${font}<br>
+                <strong>T-shirt Color:</strong> ${jerseyColor}<br>
+                <strong>Text Color:</strong> ${textColor}<br>
+                <strong>Text:</strong> ${customText}<br>
+                <strong>Number:</strong> ${customNumber}<br>
+                <strong>Brand:</strong> MAVRO SC
+            `;
+        }
+
+        function addToCart() {
+            const customText = document.getElementById('nameInput').value;
+            const customNumber = document.getElementById('numberInput').value;
+            if (!customText || !customNumber) {
+                alert('Please enter both a custom text and a number.');
+                return;
+            }
+
+            const material = document.getElementById('material').value;
+            const size = document.getElementById('size').value;
+            const font = document.getElementById('font').value;
+            const jerseyColor = document.getElementById('jerseyColorPicker').value;
+            const textColor = document.getElementById('textColorPicker').value;
+
+            const materialPrices = {
+                'cotton': 49.99,
+                'polyester': 39.99,
+                'nylon': 29.99,
+                'spandex': 19.99,
+                'blend': 34.99
+            };
+
+            const weightRanges = {
+                'S': '50-65 kg',
+                'M': '65-80 kg',
+                'L': '80-95 kg',
+                'XL': '95-110 kg',
+                'XXL': '110-125 kg'
+            };
+
+            const tshirt = {
+                id: 'tshirt_' + Date.now(), // Unique ID for the T-shirt
+                name: `Custom T-Shirt (${customText} #${customNumber})`,
+                material: material.charAt(0).toUpperCase() + material.slice(1),
+                size: `${size} (${weightRanges[size]})`,
+                font: font,
+                text: customText,
+                number: customNumber,
+                jerseyColor: jerseyColor,
+                textColor: textColor,
+                price: materialPrices[material],
+                quantity: 1
+            };
+
+            // Get existing cart from localStorage or initialize empty array
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(tshirt);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(`T-shirt "${customText} #${customNumber}" added to cart! Price: $${tshirt.price}`);
+            // Optionally redirect to Store page
+            // window.location.href = 'Store Mavro SC.html';
+        }
+
+        function resetForm() {
+            document.getElementById('customize-form').reset();
+            document.getElementById('jerseyColorPicker').value = '#ffffff';
+            document.getElementById('textColorPicker').value = '#000000';
+            document.getElementById('jersey-preview').style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+            document.getElementById('jersey-preview').style.transform = 'scale(1)';
+            document.getElementById('jersey-text').textContent = '';
+            document.getElementById('jersey-text').style.color = 'black';
+            document.getElementById('jersey-text').style.fontFamily = 'Anton, sans-serif';
+            document.getElementById('jersey-number').textContent = '';
+            document.getElementById('jersey-number').style.color = 'black';
+            document.getElementById('jersey-number').style.fontFamily = 'Anton, sans-serif';
+            document.getElementById('jersey-brand').textContent = 'MAVRO SC';
+            document.getElementById('jersey-brand').style.color = 'black';
+            document.getElementById('jersey-brand').style.fontFamily = 'Anton, sans-serif';
+            document.getElementById('preview-details').innerHTML = '';
+        }
+
+        // Initialize preview and add event listeners
+        document.getElementById('nameInput').addEventListener('input', updatePreview);
+        document.getElementById('numberInput').addEventListener('input', updatePreview);
+        document.getElementById('material').addEventListener('change', updatePreview);
+        document.getElementById('size').addEventListener('change', updatePreview);
+        document.getElementById('font').addEventListener('change', updatePreview);
+        document.getElementById('jerseyColorPicker').addEventListener('input', updatePreview);
+        document.getElementById('textColorPicker').addEventListener('input', updatePreview);
+
+        // Initial preview
+        updatePreview();
+
+        // Theme Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const themeIcon = themeToggleBtn.querySelector('i');
+
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

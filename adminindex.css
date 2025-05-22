@@ -1,0 +1,315 @@
+/* Define CSS Variables for Light and Dark Modes */
+:root {
+    --primary-color: #218838;
+    --secondary-color: #ff9d00;
+    --accent-color: #003f6a;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --button-radius: 5px;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --header-bg: #218838;
+    --header-text: white;
+    --nav-link: white;
+    --nav-hover-bg: #003f6a;
+    --hero-bg: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg');
+    --hero-text: white;
+    --item-bg: white;
+    --item-text: #666;
+    --button-bg: #ff9d00;
+    --button-text: white;
+    --button-hover-bg: #e68a00;
+    --footer-bg: #218838;
+    --footer-text: white;
+    --social-icon: white;
+    --social-icon-hover: #ff9d00;
+}
+
+body.dark-mode {
+    --background-color: #001f3f; /* Deep navy */
+    --text-color: #f5f5f5; /* Soft white */
+    --header-bg: #001833; /* Darker navy */
+    --header-text: #ff9d00; /* Gold */
+    --nav-link: #f5f5f5; /* Soft white */
+    --nav-hover-bg: #ff9d00; /* Gold */
+    --hero-bg: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg'); /* Darker overlay */
+    --hero-text: #ff9d00; /* Gold */
+    --item-bg: #003f6a; /* Lighter navy */
+    --item-text: #f5f5f5; /* Soft white */
+    --button-bg: #ff9d00; /* Gold */
+    --button-text: #001f3f; /* Deep navy */
+    --button-hover-bg: #e68a00; /* Darker gold */
+    --footer-bg: #001833; /* Darker navy */
+    --footer-text: #ff9d00; /* Gold */
+    --social-icon: #ff9d00; /* Gold */
+    --social-icon-hover: #f5f5f5; /* Soft white */
+    --shadow-color: rgba(255, 255, 255, 0.1); /* Light shadow for dark mode */
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-left: 1rem;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    background-color: var(--header-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.logo h2 {
+    color: var(--header-text);
+    margin: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--nav-link);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--button-radius);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--nav-hover-bg);
+    color: var(--header-text);
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--hero-text);
+}
+
+.hero-text {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 3rem;
+}
+
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+body.dark-mode .section h2 {
+    color: var(--secondary-color); /* Gold for dark mode */
+}
+
+/* Items Grid */
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.item {
+    background: var(--item-bg);
+    border-radius: var(--button-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item .info {
+    padding: 1rem;
+}
+
+.item .info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+body.dark-mode .item .info h3 {
+    color: var(--secondary-color); /* Gold for dark mode */
+}
+
+.item .info p {
+    margin: 0 0 1rem 0;
+    color: var(--item-text);
+}
+
+.item .info button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.item .info button:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--social-icon);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--social-icon-hover);
+    transform: scale(1.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--background-color);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color); /* Gold for dark mode */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #e68a00; /* Darker gold */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .items {
+        grid-template-columns: 1fr;
+    }
+}

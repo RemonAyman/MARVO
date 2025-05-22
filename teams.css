@@ -1,0 +1,334 @@
+/* CSS Variables for Theming */
+:root {
+  /* Light Mode Defaults (aligned with Store Mavro SC.html) */
+  --background-color: #f4f4f9; /* Body background */
+  --text-color: #333; /* Body text */
+  --header-bg: #006f69; /* Header background */
+  --header-text: #ffffff; /* Header text */
+  --nav-link: #ffffff; /* Nav links */
+  --nav-hover-bg: #ffffff; /* Nav hover background */
+  --nav-hover-text: #2E3A59; /* Nav hover text */
+  --section-bg: #ffffff; /* Section background */
+  --section-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Section shadow */
+  --table-header-bg: #006f69; /* Table header background */
+  --table-even-row: #f4f4f9; /* Table even row */
+  --table-hover-bg: #003f6a; /* Table row hover */
+  --table-hover-text: #ffffff; /* Table hover text */
+  --button-bg: #28a745; /* Button background (addRowBtn, general) */
+  --button-hover: #218838; /* Button hover */
+  --button-orange: #ff9d00; /* Save button, active nav */
+  --button-orange-hover: #e68a00; /* Save button hover */
+  --table-button-bg: #8AAAE5; /* Table button background */
+  --table-button-text: #003f6a; /* Table button text */
+  --table-button-hover-bg: #003f6a; /* Table button hover background */
+  --table-button-hover-text: #ffffff; /* Table button hover text */
+  --footer-bg: #006f69; /* Footer background */
+  --social-icon: #ffffff; /* Social icons */
+  --social-icon-hover: #ff9d00; /* Social icons hover */
+  --scrollbar-track: #f0f0f0; /* Scrollbar track */
+  --scrollbar-thumb: #006f69; /* Scrollbar thumb */
+  --scrollbar-thumb-hover: #004c49; /* Scrollbar thumb hover */
+}
+
+/* Dark Mode Variables (aligned with Store Mavro SC.html) */
+body.dark-mode {
+  --background-color: #001833; /* Navy blue */
+  --text-color: #ffffff; /* White */
+  --header-bg: #003f6a; /* Darker navy */
+  --header-text: #ff9d00; /* Gold */
+  --nav-link: #ff9d00; /* Gold */
+  --nav-hover-bg: #0a2a4d; /* Lighter navy */
+  --nav-hover-text: #ffffff; /* White */
+  --section-bg: #0a2a4d; /* Lighter navy */
+  --section-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* White shadow */
+  --table-header-bg: #003f6a; /* Darker navy */
+  --table-even-row: #0a2a4d; /* Lighter navy */
+  --table-hover-bg: #ff9d00; /* Gold for contrast */
+  --table-hover-text: #001833; /* Navy for readability */
+  --button-bg: #28a745; /* Keep green */
+  --button-hover: #1e7e34; /* Darker green */
+  --button-orange: #ff9d00; /* Gold */
+  --button-orange-hover: #e68a00; /* Darker gold */
+  --table-button-bg: #8AAAE5; /* Keep soft blue */
+  --table-button-text: #001833; /* Navy */
+  --table-button-hover-bg: #ff9d00; /* Gold */
+  --table-button-hover-text: #001833; /* Navy */
+  --footer-bg: #003f6a; /* Darker navy */
+  --social-icon: #ff9d00; /* Gold */
+  --social-icon-hover: #e68a00; /* Darker gold */
+  --scrollbar-track: #0a2a4d; /* Dark navy */
+  --scrollbar-thumb: #ff9d00; /* Gold */
+  --scrollbar-thumb-hover: #e68a00; /* Darker gold */
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px; /* Prevent footer overlap */
+  min-height: 100vh; /* Ensure full height */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Section */
+header {
+  background-color: var(--header-bg);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--header-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+header .logo h2 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+  color: var(--header-text);
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin: 0;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--nav-link);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 18px;
+  transition: all 0.7s ease;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
+  transform: scale(1.05);
+  border-radius: 20px;
+}
+
+nav a.active {
+  background-color: var(--button-orange);
+  padding: 12px;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+/* Main Content Section */
+section {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: var(--section-bg);
+  border-radius: 8px;
+  box-shadow: var(--section-shadow);
+  transition: background-color 0.3s ease;
+}
+
+section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+button, #addRowBtn {
+  padding: 10px 20px;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, #addRowBtn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+#saveBtn {
+  background-color: var(--button-orange);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#saveBtn:hover {
+  background-color: var(--button-orange-hover);
+  transform: scale(1.05);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+table th {
+  background-color: var(--table-header-bg);
+  color: var(--header-text);
+}
+
+table tr:nth-child(even) {
+  background-color: var(--table-even-row);
+}
+
+table tr:hover {
+  background-color: var(--table-hover-bg);
+  color: var(--table-hover-text);
+}
+
+table button, .edit-btn, .delete-btn {
+  padding: 5px 10px;
+  background-color: var(--table-button-bg);
+  color: var(--table-button-text);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+table button:hover, .edit-btn:hover, .delete-btn:hover {
+  background-color: var(--table-button-hover-bg);
+  color: var(--table-button-hover-text);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background-color: var(--button-orange);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-orange-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .theme-toggle i.fa-sun {
+  display: none;
+}
+
+body.dark-mode .theme-toggle i.fa-moon {
+  display: block;
+}
+
+.theme-toggle i.fa-moon {
+  display: none;
+}
+
+body.light-mode .theme-toggle i.fa-sun {
+  display: block;
+}
+
+body.light-mode .theme-toggle i.fa-moon {
+  display: none;
+}
+
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: var(--footer-bg);
+  color: var(--header-text);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: var(--social-icon);
+  font-size: 30px;
+  transition: color 0.5s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--social-icon-hover);
+  transform: scale(1.3);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
