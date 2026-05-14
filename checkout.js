@@ -89,9 +89,18 @@ function initMap() {
             if (status === 'OK' && results[0]) {
                 document.getElementById('address').value = results[0].formatted_address;
                 locationConfirmed = true; // Set flag to true
+                document.getElementById('location-warning').style.display = 'none';
             } else {
-                alert('Unable to geocode this location. Please try another spot in Aswan.');
-                locationConfirmed = false;
+                console.warn('Geocoding failed due to: ' + status);
+                // Don't alert if it's just a missing address, allow manual entry
+                if (status === 'ZERO_RESULTS') {
+                    alert('This specific spot doesn\'t have a registered address. You can still use it or type your address manually.');
+                } else {
+                    // For billing/API issues, we just warn in console and let the user type manually
+                    console.error('Google Maps API Error: ' + status);
+                }
+                // We still have the coordinates, so we can consider it "set" if the marker is moved
+                locationConfirmed = true; 
             }
         });
     });
@@ -150,9 +159,10 @@ document.getElementById('checkout-form').addEventListener('submit', (event) => {
     const latitude = document.getElementById('latitude').value;
     const longitude = document.getElementById('longitude').value;
 
-    if (!latitude || !longitude || !locationConfirmed) {
+    // If map is broken, we accept the order as long as the address text is provided
+    if ((!latitude || !longitude) && address.trim().length < 5) {
+        document.getElementById('location-warning').innerText = 'Please provide a full delivery address or select it on the map.';
         document.getElementById('location-warning').style.display = 'block';
-        alert('Please confirm your delivery location before placing the order.');
         return;
     }
 
@@ -161,7 +171,7 @@ document.getElementById('checkout-form').addEventListener('submit', (event) => {
         phoneNumber,
         email,
         address,
-        location: { lat: parseFloat(latitude), lng: parseFloat(longitude) },
+        location: latitude && longitude ? { lat: parseFloat(latitude), lng: parseFloat(longitude) } : null,
         items: cart,
         total: cart.reduce((total, item) => total + item.price * (item.quantity || 1), 0),
         timestamp: new Date().toISOString()
@@ -180,14 +190,13 @@ document.getElementById('checkout-form').addEventListener('submit', (event) => {
 // Initialize Page
 document.addEventListener('DOMContentLoaded', () => {
     updateCart();
-    try {
-        if (typeof google !== 'undefined' && google.maps) {
-            initMap();
-        } else {
-            throw new Error('Google Maps API not loaded. Check your API key and internet connection.');
+    // initMap is called by Google Maps script callback (initMap)
+    // We only check if it loaded for debugging
+    setTimeout(() => {
+        if (typeof google === 'undefined' || !google.maps) {
+            console.error('Google Maps API failed to load. Checkout will proceed with manual address entry only.');
+            const addressInput = document.getElementById('address');
+            if (addressInput) addressInput.placeholder = "Enter your full delivery address (Map unavailable)";
         }
-    } catch (error) {
-        console.error(error.message);
-        alert('Failed to load Google Maps. Please check your internet connection or API key settings.');
-    }
-});
+    }, 2000);
+});
