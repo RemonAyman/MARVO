@@ -18,7 +18,7 @@
             <img src="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" alt="Logo"> <!-- Placeholder for logo -->
             <h2> SC Mavro Club </h2>
         </div>
-        <nav>
+        <nav id="nav-links">
             <a href="adminindex.html" >Home</a>
             <a href="Store Mavro SC .html" >Store</a>
             <a href="members.html">Employees</a>
@@ -27,9 +27,14 @@
             <a href="expenses.html">Expenses</a>
             <a href="reports.html">Reports</a>
         </nav>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
     <!-- Hero Section -->
     <section class="hero">
@@ -47,7 +52,7 @@
     <section class="team-overview">
         <h2> About SC Mavro CLUB</h2>
         <img src="3be07d4d222f06f0333810def3d4dfd7-removebg-preview.png" alt="Team Photo" class="team-photo">
-        <p> SC Mavro CLUB is a club with a rich history, legendary players, and a passionate fanbase. Known for its commitment to excellence and the iconic tiki-taka style of football. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur officiis possimus distinctio eaque sequi nihil beatae, recusandae quam, quibusdam ipsa sed dicta culpa fugiat molestiae sapiente labore quidem omnis tempora Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro placeat   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis commodi architecto saepe porro expedita harum alias dignissimos ratione, deserunt totam maxime quibusdam eius! Maiores repudiandae tempora impedit perferendis voluptatibus quae, at maxime delectus pariatur excepturi animi itaque laudantium! Quasi ratione officiis ad alias sit incidunt omnis mollitia aliquam sapiente deleniti esse, voluptatum saepe porro magni distinctio! Quibusdam ipsam eaque modi tempore voluptatum perspiciatis saepe, odio sunt hic maiores, repellat inventore illo culpa impedit tenetur! Asperiores dignissimos, rem dolores totam assumenda praesentium maiores quo. Nihil officia non sapiente voluptatum nam et adipisci modi saepe molestiae alias, tenetnemo. Harum nam deleniti magni labore id neque possimus laborum ab quis architecto, animi sunt, eius laboriosam recusandae voluptate sit voluptates soluta nesciunt voluptatum! Nulla aliquid labore expedita iusto reiciendis! Quasi optio, iusto labore, consequatur laudantium dignissimos at eos porro ab excepturi asperiores eum eaque ipsa dicta quam ex cumque et suscipit vel quo libero earum quisquam. Odit, eveniet quia. Porro nostrum error ut rerum cupiditate, saepe voluptates nobis nihil ipsa a velit eaque repellendus modi vero eum fuga maiores. Officia incidunt minus illum consectetur labore.corrupti perspiciatis similique, voluptates voluptas vero maiores. Vero exercitationem iusto sequi sed repudiandae! Possimus quaerat vitae quam at ducimus asperiores, minima aperiam accusamus. Sit illo tenetur dignissimos aliquam pariatur in ducimus aperiam, quidem temporibus voluptate corporis minus dolores officiis facilis id voluptates nostrum labore soluta voluptas officia incidunt voluptatum exercitationem, consequuntur consectetur! Incidunt minima, veniam tempora omnis laborum cupiditate asperiores quos nemo iusto eveniet. Odio voluptatum harum corrupti consequatur vero odit delectus eligendi accusamus dolore, assumenda sit quod veniam repellendus voluptates culpa natus incidunt quibusdam animi, aliquam nam qui. Voluptas.</p>
+        <p> SC Mavro CLUB is a club with a rich history, legendary players, and a passionate fanbase. Known for its commitment to excellence and the iconic tiki-taka style of football. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur officiis possimus distinctio eaque sequi nihil beatae, recusandae quam, quibusdam ipsa sed dicta culpa fugiat molestiae sapiente labore quidem omnis tempora Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro placeat   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis commodi architecto saepe porro expedita harum alias dignissimos ratione, deserunt totam maxime quibusdam eius! Maiores repudiandae tempora impedit perferendis voluptatibus quae, at maxime delectus pariatur excepturi animi itaque laudantium! Quasi ratione officiis ad alias sit incidunt omnis mollitia aliquam sapiente deleniti esse, voluptatum saepe porro magni distinctio! Quibusdam ipsam eaque modi tempore voluptatum perspiciatis saepe, odio sunt hic maiores, repellat inventore illo culpa impedit tenetur! Asperiores dignissimos, rem dolores totam assumenda praesentium maiores quo. Nihil officia non sapiente voluptatum nam et adipisci modi saepe molestiae alias, tenetnemo. Harum nam deleniti magni labore id neque possimus laborum ab quis architecto, animi sunt, eius laboriosam recusandae voluptate sit voluptates soluta nesciunt voluptatum! Nulla aliquid labore expedita iusto reiciendis! Quasi optio, iusto labore, consequatur laudantium dignissimos at eos porro ab excepturi asperiores eum eaque ipsa dicta quam ex cumque et suscipit vel quo libero earum quisquam. Odit, eveniet quia. Porro nostrum error ut rerum cupiditate, saepe voluptates nobis nihil ipsa a velit eaque repellendus modi vero eum fuga maiores. Officia incidunt minus illum consectetur labore.corrupti perspiciatis similique, voluptates voluptas vero maiores. Vero exercitationem iusto sequi sed repudiandae! Possimus quaerat vitae quam at ducimus aperiam, quidem temporibus voluptate corporis minus dolores officiis facilis id voluptates nostrum labore soluta voluptas officia incidunt voluptatum exercitationem, consequuntur consectetur! Incidunt minima, veniam tempora omnis laborum cupiditate asperiores quos nemo iusto eveniet. Odio voluptatum harum corrupti consequatur vero odit delectus eligendi accusamus dolore, assumenda sit quod veniam repellendus voluptates culpa natus incidunt quibusdam animi, aliquam nam qui. Voluptas.</p>
          <!-- Placeholder for team image -->
     </section>
 
@@ -113,46 +118,46 @@
 
                         <li class="player-item" onclick="toggleDetails('player5')">
                             Player 5: Kero Sadik - Shirt Number: 5 <span class="player-position"> Position: Defender</span>
-                            <div id="player4" class="player-details" style="display:none;">
+                            <div id="player5" class="player-details" style="display:none;">
                                 <p>Position: Defender | Shirt Number: 21</p>
                             </div>
                         </li>
                         <li class="player-item" onclick="toggleDetails('player6')">
                             Player 6: Beshoy Hassan - Shirt Number: 3 <span class="player-position"> Position: Goalkeeper</span>
-                            <div id="player4" class="player-details" style="display:none;">
+                            <div id="player6" class="player-details" style="display:none;">
                                 <p>Position: Goalkeeper | Shirt Number: 25</p>
                             </div>
                         </li>
                         <li class="player-item" onclick="toggleDetails('player7')">
                             Player 7: Hassan Saber - Shirt Number: 50 <span class="player-position"> Position: Midfielder</span>
-                            <div id="player4" class="player-details" style="display:none;">
+                            <div id="player7" class="player-details" style="display:none;">
                                 <p>Position: Midfielder | Shirt Number: 50</p>
                             </div>
                         </li>
                         <li class="player-item" onclick="toggleDetails('player8')">
                             Player 8: Kero Saber - Shirt Number: 25 <span class="player-position">Position: Back left</span>
-                            <div id="player4" class="player-details" style="display:none;">
+                            <div id="player8" class="player-details" style="display:none;">
                                 <p>Position: Back left | Shirt Number: 95</p>
                             </div>
                         </li>
                         <li class="player-item" onclick="toggleDetails('player9')">
                             Player 9: Saber Fawzy - Shirt Number: 31 <span class="player-position"> Position: Back left</span>
-                            <div id="player4" class="player-details" style="display:none;">
+                            <div id="player9" class="player-details" style="display:none;">
                                 <p>Position: Back left | Shirt Number: 63</p>
                             </div>
                         </li>
 
-                        <li class="player-item" onclick="toggleDetails('player9')">
+                        <li class="player-item" onclick="toggleDetails('player10')">
                             Player 10: Beter Beshoy - Shirt Number: 7 <span class="player-position"> Position: Forward</span>
-                            <div id="player4" class="player-details" style="display:none;">
-                                <p>Position: Back left | Shirt Number: 63</p>
+                            <div id="player10" class="player-details" style="display:none;">
+                                <p>Position: Forward | Shirt Number: 7</p>
                             </div>
                         </li>
 
-                        <li class="player-item" onclick="toggleDetails('player9')">
+                        <li class="player-item" onclick="toggleDetails('player11')">
                             Player 11: Mina Karim - Shirt Number: 12 <span class="player-position"> Position: Forward</span>
-                            <div id="player4" class="player-details" style="display:none;">
-                                <p>Position: Back left | Shirt Number: 63</p>
+                            <div id="player11" class="player-details" style="display:none;">
+                                <p>Position: Forward | Shirt Number: 12</p>
                             </div>
                         </li>
 
@@ -410,6 +415,7 @@
 </footer>
 
     <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
 
 </body>
 </html>
