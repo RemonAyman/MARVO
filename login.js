@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // التحقق من القيم
         if (userId === "12345" && password === "@admin123") {
-            window.location.href = "adminindex.html"; // توجيه المستخدم
+            window.location.href = "admin.html"; // توجيه المستخدم
         } else {
             alert("Incorrect ID or Password. Please try again!");
         }
