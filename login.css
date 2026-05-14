@@ -302,3 +302,39 @@ body.light-mode .theme-toggle i.fa-sun {
 body.light-mode .theme-toggle i.fa-moon {
   display: none;
 }
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 20px 15px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header p {
+    font-size: 24px;
+  }
+
+  form button {
+    font-size: 18px;
+  }
+
+  .social-buttons button {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+}

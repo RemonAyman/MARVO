@@ -837,3 +837,19 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Admin Mobile Responsiveness */
+@media (max-width: 768px) {
+    .event-card-horizontal {
+        flex-direction: column;
+    }
+
+    .event-card-horizontal img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .event-row {
+        flex-direction: column;
+    }
+}

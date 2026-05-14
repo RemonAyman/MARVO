@@ -420,30 +420,129 @@ footer p {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
     }
 
-    nav {
+    header {
+        padding: 15px 20px;
+    }
+
+    header .logo h2 {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 22px;
+        color: white;
+    }
+
+    body.dark-mode .menu-toggle {
+        color: #ff9d00;
+    }
+
+    nav#nav-links {
+        display: none;
         flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        gap: 0;
+    }
+
+    nav#nav-links.active {
+        display: flex;
     }
 
     nav a {
-        font-size: 16px;
-        padding: 10px 20px;
+        font-size: 18px;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero {
+        height: 300px;
     }
 
     .hero h1 {
-        font-size: 3.5rem;
+        font-size: 2.2rem;
     }
 
     .hero p {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
-    table th, table td {
-        padding: 10px 12px;
+    .hero-text {
+        padding: 15px;
+    }
+
+    .hero-text h2 {
+        padding-bottom: 20px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .section h2 {
+        font-size: 18px;
+        width: auto;
+        padding: 10px 20px;
+        margin-bottom: 2rem;
+    }
+
+    .items {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+    }
+
+    .item .info {
+        padding: 15px;
+    }
+
+    .item .info h3 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .item .info p {
+        font-size: 14px;
+    }
+
+    .item .info button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 15px;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin: 0;
     }
 }

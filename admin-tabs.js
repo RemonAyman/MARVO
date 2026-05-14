@@ -33,6 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 showSection(sectionId);
                 // Update URL hash without jumping
                 history.pushState(null, null, `#${sectionId}`);
+                
+                // Close mobile menu if open
+                const navLinksContainer = document.getElementById('nav-links');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (navLinksContainer && navLinksContainer.classList.contains('active')) {
+                    navLinksContainer.classList.remove('active');
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        const icon = mobileMenu.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                }
             });
         }
     });

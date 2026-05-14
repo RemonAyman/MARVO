@@ -283,3 +283,99 @@ footer p {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover);
 }
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header .logo h2 {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 22px;
+        color: white;
+    }
+
+    body.dark-mode .menu-toggle {
+        color: #ff9d00;
+    }
+
+    nav#nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        gap: 0;
+    }
+
+    nav#nav-links.active {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .checkout-section {
+        padding: 20px 15px;
+    }
+
+    .checkout-section h2 {
+        font-size: 18px;
+        width: auto;
+        padding: 10px 20px;
+    }
+
+    #checkout-form input, #map, #confirm-location, #checkout-form button[type="submit"] {
+        width: 100%;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 15px;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
